@@ -39,9 +39,6 @@ const ProblemList = (props: DataBodyProps) => {
       {/* Render modal conditionally */}
       {isModalOpen && (
         <Modal onClose={toggleModal} title={props.title}>
-          {/* Content of your modal */}
-          <h2>Modal Content</h2>
-          <button onClick={toggleModal}>Close</button>
         </Modal>
       )}
     </div>
