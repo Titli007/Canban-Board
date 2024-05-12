@@ -73,6 +73,8 @@ function SignUp() {
           >
             Sign Up
           </button>
+          <span className="text-gray-700 font-bold mr-2 ">Already Have An Account?</span>
+          <button className="underline text-blue-600 mt-3 text-lg" onClick={()=>navigate('/login')}>Log In</button>
         </form>
       </div>
     </div>

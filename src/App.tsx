@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 import DataBody from "./component/primary/DataBody";
 import Nav from "./component/primary/Nav";
-import SignIn from "./Authentication/SignIn";
+import SignUp from "./Authentication/SignUp";
 import LogIn from "./Authentication/LogIn";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
               </div>
             }
           />
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<LogIn />} />
         </Routes>
       </div>

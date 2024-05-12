@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [username, setUsername] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const navigate = useNavigate()
 
@@ -12,12 +12,14 @@ const Login = () => {
     const storedEmail = localStorage.getItem('email');
     const storedPassword = localStorage.getItem('password');
 
-    // Check if the entered username and password match the stored values
-    if (username === storedEmail && password === storedPassword) {
+    console.log(localStorage.getItem('email'))
+
+    // Check if the entered email and password match the stored values
+    if (email === storedEmail && password === storedPassword) {
       console.log('Login successful!');
       localStorage.setItem('loggedIn', 'true');
       // Optionally, you can reset the form fields after successful login
-      setUsername('');
+      setEmail('');
       setPassword('');
       navigate('/')
       // You can redirect the user to the desired page or perform additional actions
@@ -36,18 +38,18 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
-              htmlFor="username"
+              htmlFor="email"
               className="block text-gray-700 font-bold mb-2"
             >
-              Username:
+              email:
             </label>
             <input
-              id="username"
-              name="username"
+              id="email"
+              name="email"
               type="text"
               required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -74,6 +76,8 @@ const Login = () => {
           >
             Login
           </button>
+          <span className="text-gray-700 font-bold mr-1 ">New User?</span>
+          <button className="underline text-blue-600 mt-3 text-lg" onClick={()=>navigate('/signup')}>Sign Up</button>
         </form>
       </div>
     </div>
